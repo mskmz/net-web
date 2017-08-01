@@ -3,6 +3,7 @@ package com.mskmz.course.bean;
 import com.mskmz.course.utils.Utils;
 
 import java.sql.Blob;
+import java.sql.SQLException;
 
 /**
  * Created by mskmz on 2017/7/30.
@@ -11,9 +12,9 @@ public class Content {
     int id;
     double price ;
     String title ;
-    Blob image ;
+    String image ;
     String summary;
-    Blob detail;
+    String detail;
     String buyPrice;
     boolean isSell;
     boolean isBuy;
@@ -119,19 +120,33 @@ public class Content {
         this.saleNum = saleNum;
     }
 
-    public Blob getImage() {
+    public String getImage() {
         return image;
     }
 
     public void setImage(Blob image) {
-        this.image = image;
+        try {
+            this.image = new String(image.getBytes((long)1, (int)image.length()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(image==null){
+            this.image="";
+        }
     }
 
-    public Blob getDetail() {
+    public String getDetail() {
         return detail;
     }
 
     public void setDetail(Blob detail) {
-        this.detail = detail;
+        try {
+            this.detail = new String(detail.getBytes((long)1, (int)detail.length()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(detail==null){
+            this.detail="";
+        }
     }
 }
