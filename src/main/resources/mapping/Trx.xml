@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mskmz.course.dao.TrxDao">
+
+    <!-- 定义数据库字段与实体对象的映射关系 -->
+    <resultMap type="com.mskmz.course.bean.Trx" id="trxResultMap">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="image" column="image"/>
+        <result property="contentid" column="contentid"/>
+        <result property="personid" column="personid"/>
+        <result property="buyPrice" column="price"/>
+        <result property="buyNum" column="number"/>
+        <result property="buyTime" column="time"/>
+        <result property="total" column="price"/>
+    </resultMap>
+
+</mapper>
